@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كافترية نادي هارفر سبوت</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Tajawal', sans-serif;
+  text-align: center;
+  color: white;
+  overflow-x: hidden;
+  direction: rtl;
+}
+
+/* حركة الخلفية */
+@keyframes bgMove {
+  0% { background-position: center top; }
+  50% { background-position: center bottom; }
+  100% { background-position: center top; }
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: bgMove 40s linear infinite;
+  z-index: -2;
+}
+
+/* فيمه أخف */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25); /* أخف من قبل */
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+
+.content {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* الصفحة الرئيسية */
+h1 {
+  font-size: 48px;
+  color: #ffd700;
+   -webkit-text-stroke: 2px rgb(0, 0, 0);
+  text-stroke: 2px block;
+  font-size:26px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 26px;
+  color: #ffd700;
+  webkit-text-stroke: 1.5px rgb(0, 0, 0);
+  text-stroke: 1.5x block;
+  font-size:26px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+button {
+  width: 320px;
+  padding: 18px;
+  font-size: 24px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: #1e90ff;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* صندوق المنيو */
+.box {
+  background: rgba(0,0,0,0.35); /* فيمه خفيفة داخل المنيو */
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  line-height: 1.9;
+}
+
+h2 {
+  color: #ffd700;
+  margin-top: 20px;
+  border-bottom: 1px solid #ffd700;
+  padding-bottom: 5px;
+}
+
+p {
+  font-size: 20px;
+  margin: 6px 0;
+}
+
+.note {
+  font-size: 18px;
+  margin-top: 15px;
+  color: #eee;
+}
+
+.back-btn {
+  margin-top: 25px;
+  background: #e6b800;
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 20px;
+  color: #ffd700;
+  -webkit-text-stroke: 1px black;
+  text- stroke: 1px block;
+  font-weight:bold;
+}
+
+/* موبايل */
+@media(max-width:480px){
+  h1 { font-size: 30px; }
+  h2 { font-size: 20px; }
+  p { font-size: 16px; }
+  button { font-size: 18px; width: 260px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<div class="content" id="mainContent">
+
+  <h1>كافترية نادي هارفر سبوت</h1>
+  <div class="subtitle">🌙 أجواء رمضان كل يوم معانا 🌙</div>
+
+  <div class="buttons">
+    <button onclick="openSection('iftar')">الفطار</button>
+    <button onclick="openSection('suhoor')">السحور</button>
+  </div>
+
+  <div class="footer">
+  جميع حقوق النشر © كافترية نادي هارفر سبوت
+  </div>
+
+</div>
+
+<script>
+
+function openSection(section) {
+
+  let content = "";
+
+  if(section === "iftar"){
+    content = `
+      <div class="box">
+      <h1>🌙 الفطار</h1>
+      <div class="subtitle">قائمة الفطار كاملة</div>
+
+      <h2>وجبات المشويات</h2>
+      <p>فرخة كاملة — 400</p>
+      <p>نصف فرخة — 200</p>
+      <p>ربع فرخة — 150</p>
+      <p>ربع كفتة — 200</p>
+
+      <h2>مشويات بالوزن</h2>
+      <p>كباب (1 كجم) — 900</p>
+      <p>كفتة (1 كجم) — 600</p>
+      <p>لحم مندي — 800</p>
+      <p>ممبار (1 كجم) — 250</p>
+       <p>طرب (1 كجم) — 700</p>
+      <h2>الصواني</h2>
+      <p>صنية هارفر 5 أفراد — 1200</p>
+      <p>كيلو أرز بسمتي + نص ممبار + نص كفتة + نصف مندي + فرخة مشوية</p>
+
+      <p>صنية هارفر 3 أفراد — 700</p>
+      <p>نصف كيلو أرز بسمتي + ربع ممبار + ربع كفتة + ربع مندي + نصف فرخة مشوية</p>
+
+      <h2>الإضافات</h2>
+      <p>أرز بسمتي ساده — 30</p>
+      <p>أرز بسمتي خلطة — 50</p>
+
+      <div class="note">
+      جميع الوجبات شاملة (سلطة طحينة + سلطة خضراء + عيش + أرز + مشروب رمضاني)
+      </div>
+
+      <button class="back-btn" onclick="goBack()">رجوع</button>
+      </div>
+    `;
+  }
+
+  if(section === "suhoor"){
+    content = `
+      <div class="box">
+      <h1>🌙 السحور</h1>
+      <div class="subtitle">قائمة السحور كاملة</div>
+
+      <h2>الأطباق الرئيسية</h2>
+      <p>طبق بيض — 10</p>
+      <p>طبق عسل — 10</p>
+      <p>طبق بطاطس — 10</p>
+      <p>طبق جبنة — 15</p>
+      <p>طبق لانشون — 15</p>
+      <p>طبق رومي — 20</p>
+
+      <h2>الإضافات</h2>
+      <p>طبق فول — 10</p>
+      <p>زبادي — 10</p>
+      <p>سلطة خضراء — 10</p>
+      <p>كانتالوب — 10</p>
+      <p>سلطة طحينة — 5</p>
+      <p>عيش — 5</p>
+
+      <h2>الطلبات</h2>
+      <p>طبق فول + زبادي + طبق سلطة + طبق مخلل + 4 رغيف عيش — 30</p>
+
+      <button class="back-btn" onclick="goBack()">رجوع</button>
+      </div>
+    `;
+  }
+
+  document.getElementById("mainContent").innerHTML = content;
+}
+
+function goBack(){
+  location.reload();
+}
+
+</script>
+
+</body>
+</html>
